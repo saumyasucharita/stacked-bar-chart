@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.BarChart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 80%;
+    margin: 0 auto;
+    height: 300px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.BarChart-bar {
+    flex: 1;
+   /* display: flex; */
+   /* flex-direction : column; */
+    background-color: #007acc;
+    transition: height 0.5s;
+    margin-right: 10px;
+    
+}
+.BarChart-bar:last-child{
+	margin: 0;
+}
+.BarChart-stack{
+ 	box-shadow: 10px 10px 15px inset #00000033;
+ }
+.barchart--apartment{
+	background-color: green;
+}
+.barchart--utilities{
+	background-color: purple;
+}
+.barchart--food{
+	background-color: yellow;
+}
+.barchart--label{
+    text-align: center;
+    margin: 0;
+    padding: 5px; /* Adjust the padding as needed for spacing */
+    font-weight: bold;
+}
