@@ -15,16 +15,57 @@ body {
     border: 1px solid #ccc;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
+.YAxis {
+    display: flex;
+    flex-direction: column;
+    padding-right: 5px; 
+    border-right: 5px solid #000; /* Add border for the y-axis */
+	height: 100%;
+}
+
+.YAxis-label {
+	position: relative; 
+	display: block; 
+	flex-grow: 1;
+	font-weight: bold;
+}
+.YAxis-label::before { 
+	content: '-';
+	position: absolute; 
+	width: 10px;
+	align-items: center;
+    padding-left: 15px; 
+    right: -10px;
+ }
+ /*.YAxis-label::after {
+	content: '-';
+    position: absolute;
+    margin-right: -10px;
+    width: 100%; 
+    background-color: grey;
+
+}*/
 
 .BarChart-bar {
     flex: 1;
    /* display: flex; */
    /* flex-direction : column; */
+    flex-grow: 1;
     background-color: #007acc;
     transition: height 0.5s;
     margin-right: 10px;
     
 }
+
+/*.BarChart::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(20% - 1px); 
+    border-top: 1px solid #ccc; 
+} */
+
 .BarChart-bar:last-child{
 	margin: 0;
 }
@@ -32,17 +73,43 @@ body {
  	box-shadow: 10px 10px 15px inset #00000033;
  }
 .barchart--apartment{
-	background-color: green;
+	background-color: #8DDFCB;
 }
 .barchart--utilities{
-	background-color: purple;
+	background-color: #82A0D8;
 }
 .barchart--food{
-	background-color: yellow;
+	background-color: #EDB7ED;
 }
 .barchart--label{
     text-align: center;
     margin: 0;
     padding: 5px; /* Adjust the padding as needed for spacing */
     font-weight: bold;
+}
+
+.Legend {
+    position: absolute;
+    top: 30px; 
+    right: 20px; 
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.Legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.Legend-color {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.Legend-label {
+    margin: 5px;
 }

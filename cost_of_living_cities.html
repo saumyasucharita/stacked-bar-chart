@@ -2,67 +2,96 @@
 <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
+<div class="row">
+	<h1>Cost of living in cities</h1> 
+</div>
 <div class="BarChart">
-        <div class="BarChart-bar" style="height: 26.77%;"> 
-			<div class = "BarChart-stack barchart--apartment" style="height: 72.83%;">
+		<div class="YAxis ">
+				<div class="YAxis-label">6000</div>
+				<div class="YAxis-label">5500</div>
+                <div class="YAxis-label">5000</div>
+                <div class="YAxis-label">4500</div>
+                <div class="YAxis-label">4000</div>
+                <div class="YAxis-label">3500</div>
+				<div class="YAxis-label">3000</div>
+				<div class="YAxis-label">2500</div>
+				<div class="YAxis-label">2000</div>
+				<div class="YAxis-label">1500</div>
+				<div class="YAxis-label">1000</div>
+				<div class="YAxis-label">500</div>
+            </div>
+		<div class="BarChart-bar" style="height: 24.98%;"> 
+			<div onclick="alert('Apartment rent in Shanghai is 1091.93 USD')" class = "BarChart-stack barchart--apartment" style="height: 72.83%;">
 				<p class="barchart--label">Shanghai</p>
 			</div>
 			<div class = "BarChart-stack barchart--utilities" style="height: 4.4%;"></div>
 			<div class = "BarChart-stack barchart--food" style="height: 22.77%;"></div> 
 		</div> 
-        <div class="BarChart-bar" style="height: 14.05%;">
-			<div class = "BarChart-stack barchart--apartment" style="height: 66.4%;">
+		<div class="BarChart-bar" style="height: 13.11%;">
+			<div onclick="alert('Apartment rent in Mumbai is 522.4 USD')" class = "BarChart-stack barchart--apartment" style="height: 66.4%;">
 				<p class="barchart--label">Mumbai</p>
 			</div>
 			<div class = "BarChart-stack barchart--utilities" style="height: 5.54%;"></div>
 			<div class = "BarChart-stack barchart--food" style="height: 28.06%;"></div> 
 		</div>
-        <div class="BarChart-bar" style="height: 8.34%;">
-			<div class = "BarChart-stack barchart--apartment" style="height: 42.1%;">
+		<div class="BarChart-bar" style="height: 7.8%;">
+			<div onclick="alert('Apartment rent in Cairo is 196.83 USD')" class = "BarChart-stack barchart--apartment" style="height: 42.1%;">
 				<p class="barchart--label">Cairo</p>
 			</div>
 			<div class = "BarChart-stack barchart--utilities" style="height: 5.67%;"></div>
 			<div class = "BarChart-stack barchart--food" style="height: 52.23%;"></div> 
 		</div>
-        <div class="BarChart-bar" style="height: 98.78%;">
-			<div class = "BarChart-stack barchart--apartment" style="height: 69.62%;">
+		<div class="BarChart-bar" style="height: 92.2%;">
+			<div onclick="alert('Apartment rent in New York is 3851.51 USD. Out of my league!!')" class = "BarChart-stack barchart--apartment" style="height: 69.62%;">
 				<p class="barchart--label">New York</p>
 			</div>
 			<div class = "BarChart-stack barchart--utilities" style="height: 3.26%;"></div>
 			<div class = "BarChart-stack barchart--food" style="height: 27.11%;"></div>
 		</div>
-		<div class="BarChart-bar" style="height: 68.28%;">
-			<div class = "BarChart-stack barchart--apartment" style="height: 63.22%;">
+		<div class="BarChart-bar" style="height: 63.72%;">
+			<div onclick="alert('Apartment rent in London is 2417.07 USD')" class = "BarChart-stack barchart--apartment" style="height: 63.22%;">
 				<p class="barchart--label">London</p>
 			</div>
 			<div class = "BarChart-stack barchart--utilities" style="height: 7.83%;"></div>
 			<div class = "BarChart-stack barchart--food" style="height: 28.95%;"></div>
 		</div>
-		<div class="BarChart-bar" style="height: 44.88%;">
-			<div class = "BarChart-stack barchart--apartment" style="height: 54.32%;">
+		<div class="BarChart-bar" style="height: 41.88%;">
+			<div onclick="alert('Apartment rent in Paris is 1365.19 USD')" class = "BarChart-stack barchart--apartment" style="height: 54.32%;">
 				<p class="barchart--label">Paris</p>
 			</div>
 			<div class = "BarChart-stack barchart--utilities" style="height: 7.94%;"></div>
 			<div class = "BarChart-stack barchart--food" style="height: 37.74%;"></div>
 		</div>
-		<div class="BarChart-bar" style="height: 47.67%;">
+		<div class="BarChart-bar" style="height: 44.49%;">
 			<div class = "BarChart-stack barchart--apartment" style="height: 64.46%;">
 				<p class="barchart--label">Sydney</p>
 			</div>
 			<div class = "BarChart-stack barchart--utilities" style="height: 4.99%;"></div>
 			<div class = "BarChart-stack barchart--food" style="height: 30.55%;"></div>
 		</div>
-		<div class="BarChart-bar" style="height: 68.04%;">
+		<div class="BarChart-bar" style="height: 63.5%;">
 			<div class = "BarChart-stack barchart--apartment" style="height: 64.82%;">
 				<p class="barchart--label">San Jose</p>
 			</div>
 			<div class = "BarChart-stack barchart--utilities" style="height: 5.26%;"></div>
 			<div class = "BarChart-stack barchart--food" style="height: 29.92%;"></div>
 		</div>
-    </div>
-
+	</div>
 <!-- Section for legend -->
-
+	<div class="Legend">
+		<div class="Legend-item">
+			<div class="Legend-color barchart--apartment"></div>
+			<p class="Legend-label">Apartment Rent</p>
+		</div>
+		<div class="Legend-item">
+			<div class="Legend-color barchart--utilities"></div>
+			<p class="Legend-label">Utilities</p>
+		</div>
+		<div class="Legend-item">
+			<div class="Legend-color barchart--food"></div>
+			<p class="Legend-label">Food</p>
+		</div>
+	</div>
 
 </body>
 
