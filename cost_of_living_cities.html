@@ -5,21 +5,9 @@
 <div class="row">
 	<h1>Cost of living in cities</h1> 
 </div>
-<div class="BarChart">
-		<div class="YAxis ">
-				<div class="YAxis-label">6000</div>
-				<div class="YAxis-label">5500</div>
-                <div class="YAxis-label">5000</div>
-                <div class="YAxis-label">4500</div>
-                <div class="YAxis-label">4000</div>
-                <div class="YAxis-label">3500</div>
-				<div class="YAxis-label">3000</div>
-				<div class="YAxis-label">2500</div>
-				<div class="YAxis-label">2000</div>
-				<div class="YAxis-label">1500</div>
-				<div class="YAxis-label">1000</div>
-				<div class="YAxis-label">500</div>
-            </div>
+<div class="BarChart" id="bar_chart">
+		<div class="YAxis" id="yAxisLabels">
+            	</div>
 		<div class="BarChart-bar" style="height: 24.98%;"> 
 			<div onclick="alert('Apartment rent in Shanghai is 1091.93 USD')" class = "BarChart-stack barchart--apartment" style="height: 72.83%;">
 				<p class="barchart--label">Shanghai</p>
@@ -77,7 +65,7 @@
 			<div class = "BarChart-stack barchart--food" style="height: 29.92%;"></div>
 		</div>
 	</div>
-<!-- Section for legend -->
+	<!-- Section for legend -->
 	<div class="Legend">
 		<div class="Legend-item">
 			<div class="Legend-color barchart--apartment"></div>
@@ -92,7 +80,7 @@
 			<p class="Legend-label">Food</p>
 		</div>
 	</div>
-
+	<script src="./js/main.js"></script>
 </body>
 
 
