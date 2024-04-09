@@ -1,39 +1,13 @@
 console.log('Starting front-end project');
+//The graph will show data of these cities for now
 cities = ["Shanghai", "Mumbai", "Cairo", "New York", "London", "Paris", "Sydney", "San Jose"]
 let cost_data = []; //Global variable
 function render() {
-    console.log('---------- rendering!')
-    
-    //console.log(generateyAxisLabels(6000, 500, 500));
-    //console.log('***************************');
-    console.log(generateMainBarChart());
-    fetchJSONData();
-    	
-    // Loop through the array of information
-   /* for (let powerLevelInfo of powerLevels) {
-
-        // Grab the powerLevel and name of each test subject
-        let powerLevel = powerLevelInfo[0];
-        let name = powerLevelInfo[1];
-
-        // Create a new div that contains this information
-        let newDiv = document.createElement('div');
-
-        // Give that div the class TestSubject, and fill in text with the name
-        newDiv.classList.add('TestSubject');
-
-        // Challenge 2:
-        newDiv.textContent = name + ' - ' + powerLevel;
-
-        // Challenge 3:
-        newDiv.style.width = powerLevel * 100 + 'px';
-
-        // Add the div to the page
-        console.log('made a new div:', newDiv)
-        resultsDiv.appendChild(newDiv); */
-    
+    console.log('---------- Rendering!')
+    fetchJSONData();   
 }
 
+//Function to generate y-axis scale labels
 function generateyAxisLabels(start, end, step)
 {
 	labelStr = '';
@@ -44,25 +18,23 @@ function generateyAxisLabels(start, end, step)
   	return labelStr;
 }
 
+//Generate the main bar-chart
 function generateMainBarChart(){
 	console.log('In generate Main Bar');
-	barchart_str = '';
-	
-	/*let mainDiv = document.querySelector('#bar_chart'); 
-	mainDiv.innerHTML = '';
-	
-	// Fetch the div from the page
-    	let yAxisDiv = document.querySelector('#yAxisLabels');
-    	console.log(yAxisDiv);*/
-
-    	// Clear anything that might be in the div
-    	//yAxisDiv.innerHTML = generateyAxisLabels(6000, 500, 500);
+	 let mainDiv = document.querySelector('#bar_chart'); 
+	 // Clear anything that might be in the div
+	 mainDiv.innerHTML = '';
+	 
+	 const yAxisDiv = document.createElement('div');
+	 yAxisDiv.setAttribute('class', 'YAxis');
+	 yAxisDiv.innerHTML = '';
+	 yAxisDiv.innerHTML = generateyAxisLabels(6000, 500, 500);
+	 
+    	 mainDiv.append(yAxisDiv);
+    	
   	for (let entry of cost_data) {
-            //barchart_str += '<div class="BarChart-bar" style="height: 24.98%;"></div>\n';
-            //Total Bar Height%
     	   const div = document.createElement('div');
 	   div.setAttribute('class', 'BarChart-bar');
-	   //barDiv.style.height = `${entry.rent}%`;
 	   div.style.height = `${entry.barHeight}%`;
 		
 	    const apartmentDiv = document.createElement('div');
@@ -85,18 +57,14 @@ function generateMainBarChart(){
 	    const foodDiv = document.createElement('div');
 	    foodDiv.setAttribute('class', 'BarChart-stack barchart--food');
 	    foodDiv.style.height = `${entry.foodHeight}%`;
-	    div.appendChild(foodDiv);
-    	    
-    	    //mainDiv.append(yAxisDiv);
+	    div.appendChild(foodDiv);   
+    	   
 	    mainDiv.append(div);
         }
-        //console.log(fetchJSONData());
-  	return barchart_str;
 }
-function fetchJSONData() {
-	    for(let city of cities){
-	    	console.log(city);
-	    }	
+
+//Function to read data from the JSON file
+function fetchJSONData() {	
             fetch("./cost_of_living_data.json")
                 .then((res) => {
                     if (!res.ok) {
@@ -109,20 +77,21 @@ function fetchJSONData() {
                       for(let cityData of data){
                       const entry = {};
                       	if (cities.includes(cityData['city'])) {
-                      		console.log('For city', cityData['city']);
+                      		/*console.log('For city', cityData['city']);
         			console.log('Apartment rent is: ', cityData['x48']);
         			console.log('Utilities: ', cityData['x36']);
-        			console.log('Meal cost for 60 meals: ', cityData['x1']*60);
+        			console.log('Meal cost for 60 meals: ', cityData['x1']*60); */
+        			
+        			//Calculate total living expense for the month
         			let totalSum = parseFloat(cityData['x48']) + parseFloat(cityData['x36']) + parseFloat(cityData['x1']*60);
-        			console.log('Total living expense in this city is:', totalSum);
         			let barHeight = totalSum/6000 * 100;
-        			console.log('Bar height in %', barHeight);
         			
         			//Calculate bar-section percentage
-        			console.log('Apartment %', parseFloat(cityData['x48'])/totalSum * 100);
+        			/*console.log('Apartment %', parseFloat(cityData['x48'])/totalSum * 100);
         			console.log('Utilities %', parseFloat(cityData['x36'])/totalSum * 100);
-        			console.log('Meal cost %', parseFloat(cityData['x1']*60) /totalSum * 100);
+        			console.log('Meal cost %', parseFloat(cityData['x1']*60) /totalSum * 100); */
         			
+        			//Set object properties like total bar-height
         			entry.barHeight = barHeight;
         			entry.rent = cityData['x48'];
         			entry.city = cityData['city'];
@@ -130,15 +99,7 @@ function fetchJSONData() {
         			entry.utilitiesHeight = parseFloat(cityData['x36'])/totalSum * 100;
         			entry.foodHeight = parseFloat(cityData['x1']*60)/totalSum * 100;
         			
-        			console.log('Entry');
         			console.log(entry);
-        			/*const entry = {rent: 200,
-					city: 'San Jose',
-					apartmentHeight: '60',
-					utilitiesHeight: '10',
-					}*/
-
-        			
         			cost_data.push(entry);
         			
       			}
